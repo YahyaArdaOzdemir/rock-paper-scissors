@@ -48,6 +48,8 @@ function playRound(){
 }
 
 function playGame(){
+    humanScore = 0;
+    computerScore = 0;
     playRound();
     playRound();
     playRound();
@@ -55,18 +57,12 @@ function playGame(){
     playRound();
 
     if(humanScore > computerScore){
-        humanScore = 0;
-        computerScore = 0;
         return "Humanity has defeated the evil computers. Long live the king!";
     }
     else if(humanScore < computerScore){
-        humanScore = 0;
-        computerScore = 0;
         return "Humanity has lost against the evil computers. May god preserve us...";
     }
     else{
-        humanScore = 0;
-        computerScore = 0;
         return "The battle of supremacy against computers rages on.";
     }
 }
