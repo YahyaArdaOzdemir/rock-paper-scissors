@@ -27,21 +27,19 @@ function getHumanChoice(){
 function playRound(){
     let human = getHumanChoice();
     let computer = getComputerChoice();
+    console.log("Humanity has chosen: " + human + " against " +computer);
     if((human === "Rock" && computer === "Scissors") ||
         (human === "Paper" && computer === "Rock") ||
         (human === "Scissors" && computer === "Paper")){
             humanScore++;
-            console.log("Humanity has chosen: " + human + " against " +computer);
             console.log("Humanity is VICTORIOUS! Score: " + humanScore + " / " + computerScore);
 
         }
     else if (human === computer){
-        console.log("Humanity has chosen: " + human + " against " +computer);
         console.log("How could this be? It's a DRAW! Score: " + humanScore + " / " + computerScore)
     }
     else{
         computerScore++;
-        console.log("Humanity has chosen: " + human + " against " +computer);
         console.log("Humanity has been DEFEATED! Score: " + humanScore + " / " + computerScore)
     }
 
