@@ -1,10 +1,9 @@
-let computer;
-let human;
 let computerScore = 0;
 let humanScore = 0;
 
 function getComputerChoice(){
     let x = Math.floor(Math.random()* 100) + 1
+    let computer;
     if(x < 34){
         computer = "Rock"
     }
@@ -19,17 +18,15 @@ function getComputerChoice(){
 
 function getHumanChoice(){
     let x = prompt("Will you have 'Rock', 'Paper' or 'Scissors', sire?")
+    let human;
     human = x.slice(0, 1).toUpperCase() + x.slice(1).toLowerCase();
-    if(human !== "Rock" && human !=="Paper" && human !=="Scissors"){
-        return "Sire, I beseech thee. Choose either rock, paper or scissors.\n"
-    }
     console.log("You have made your choice...");
     return human;
 }
 
-function playRound(human, computer){
-    human = getHumanChoice();
-    computer = getComputerChoice();
+function playRound(){
+    let human = getHumanChoice();
+    let computer = getComputerChoice();
     if((human === "Rock" && computer === "Scissors") ||
         (human === "Paper" && computer === "Rock") ||
         (human === "Scissors" && computer === "Paper")){
@@ -48,4 +45,28 @@ function playRound(human, computer){
         console.log("Humanity has been DEFEATED! Score: " + humanScore + " / " + computerScore)
     }
 
+}
+
+function playGame(){
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+
+    if(humanScore > computerScore){
+        humanScore = 0;
+        computerScore = 0;
+        return "Humanity has defeated the evil computers. Long live the king!";
+    }
+    else if(humanScore < computerScore){
+        humanScore = 0;
+        computerScore = 0;
+        return "Humanity has lost against the evil computers. May god preserve us...";
+    }
+    else{
+        humanScore = 0;
+        computerScore = 0;
+        return "The battle of supremacy against computers rages on.";
+    }
 }
