@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+
+}
+#rps{
+    display: flex;
+    border: solid black;
+}
+
+.buttons{
+
+}
+button{
+    margin: 15px;
+}
+div{
+    text-align: center;
+}
+p{
+    text-align: center;
+}
+#leftbar, #rightbar{
+    width: 33%;
+    border: solid black;
+    font-size: 50px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 300px;
+
+}
+#game{
+    display: flex;
+    flex-direction: column;
+    width: 67%;
+    border: solid black;
+    font-size: 24px;
+    justify-content: center;
+
+}

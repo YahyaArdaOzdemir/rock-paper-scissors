@@ -17,24 +17,38 @@ function getComputerChoice(){
 }
 
 function playRound(humanChoice){
+    p.textContent = "";
     let human = humanChoice;
     let computer = getComputerChoice();
-
     div.textContent = "Humanity has chosen: " + human + " against " +computer;
     if((human === "Rock" && computer === "Scissors") ||
         (human === "Paper" && computer === "Rock") ||
         (human === "Scissors" && computer === "Paper")){
             humanScore++;
-            divz.textContent ="Humanity is VICTORIOUS! Score: " + humanScore + " / " + computerScore;
-
+            divz.textContent ="Humanity is VICTORIOUS!";
+            
         }
     else if (human === computer){
-        divz.textContent = "How could this be? It's a DRAW! Score: " + humanScore + " / " + computerScore;
+        divz.textContent = "How could this be? It's a DRAW!";
     }
     else{
         computerScore++;
-        divz.textContent ="Humanity has been DEFEATED! Score: " + humanScore + " / " + computerScore;
+        divz.textContent ="Humanity has been DEFEATED!";
+        
     }
+    leftscore.textContent = humanScore;
+    rightscore.textContent = computerScore;
+    if(humanScore === 5){
+        p.textContent = "Humanity has defeated the evil computers. Long live the king!";
+        humanScore = 0;
+        computerScore = 0;
+    }
+    else if(computerScore === 5){
+        p.textContent = "Humanity has lost against the evil computers. May god preserve us...";
+        humanScore = 0;
+        computerScore = 0;
+    }
+
 
 }
 
@@ -65,3 +79,10 @@ scissors.addEventListener("click", () => playRound("Scissors"));
 
 const div = document.querySelector("#versus");
 const divz = document.querySelector("#result");
+const leftscore = document.querySelector("#leftscore");
+const rightscore = document.querySelector("#rightscore");
+
+
+const score = document.querySelector("#tally");
+
+const p = document.querySelector("p");
