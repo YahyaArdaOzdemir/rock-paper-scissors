@@ -16,31 +16,24 @@ function getComputerChoice(){
     return computer;
 }
 
-function getHumanChoice(){
-    let x = prompt("Will you have 'Rock', 'Paper' or 'Scissors', sire?")
-    let human;
-    human = x.slice(0, 1).toUpperCase() + x.slice(1).toLowerCase();
-    console.log("You have made your choice...");
-    return human;
-}
-
-function playRound(){
-    let human = getHumanChoice();
+function playRound(humanChoice){
+    let human = humanChoice;
     let computer = getComputerChoice();
-    console.log("Humanity has chosen: " + human + " against " +computer);
+
+    div.textContent = "Humanity has chosen: " + human + " against " +computer;
     if((human === "Rock" && computer === "Scissors") ||
         (human === "Paper" && computer === "Rock") ||
         (human === "Scissors" && computer === "Paper")){
             humanScore++;
-            console.log("Humanity is VICTORIOUS! Score: " + humanScore + " / " + computerScore);
+            divz.textContent ="Humanity is VICTORIOUS! Score: " + humanScore + " / " + computerScore;
 
         }
     else if (human === computer){
-        console.log("How could this be? It's a DRAW! Score: " + humanScore + " / " + computerScore)
+        divz.textContent = "How could this be? It's a DRAW! Score: " + humanScore + " / " + computerScore;
     }
     else{
         computerScore++;
-        console.log("Humanity has been DEFEATED! Score: " + humanScore + " / " + computerScore)
+        divz.textContent ="Humanity has been DEFEATED! Score: " + humanScore + " / " + computerScore;
     }
 
 }
@@ -48,11 +41,7 @@ function playRound(){
 function playGame(){
     humanScore = 0;
     computerScore = 0;
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-    playRound();
+
 
     if(humanScore > computerScore){
         return "Humanity has defeated the evil computers. Long live the king!";
@@ -64,3 +53,15 @@ function playGame(){
         return "The battle of supremacy against computers rages on.";
     }
 }
+
+const rock = document.querySelector("#rock");
+rock.addEventListener("click", () => playRound("Rock"));
+
+const paper = document.querySelector("#paper");
+paper.addEventListener("click", () => playRound("Paper"));
+
+const scissors = document.querySelector("#scissors");
+scissors.addEventListener("click", () => playRound("Scissors"));
+
+const div = document.querySelector("#versus");
+const divz = document.querySelector("#result");
